@@ -12,7 +12,7 @@ export default {
     },
     data() {
         return {
-            logo1: "classic_shop_logo1x.png"
+
         }
     }
 }

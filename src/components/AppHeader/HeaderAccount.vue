@@ -21,17 +21,17 @@ export default {
             <!-- lista social -->
             <div class="socials h-100 d-flex align-items-center">
                 <template v-for="social in store.socials">
-                    <i class="me-3 text-secondary" :class="`fa-brands fa-` + social"></i>
+                    <i class="me-3 text-secondary" role="button" :class="`fa-brands fa-` + social"></i>
                 </template>
             </div>
 
             <!-- account sction -->
             <div class="account-button h-100 d-flex align-items-center">
-                <div class="me-3 text-secondary">Shopping Cart</div>
-                <div class="px-2 border-start border-end text-secondary">My Account <i
+                <div class="me-3 text-secondary" role="button">Shopping Cart</div>
+                <div class="px-2 border-start border-end text-secondary" role="button">My Account <i
                         class="fa-solid fa-angle-down fa-2xs align-middle"></i>
                 </div>
-                <div class="px-5 bg-light h-100"><i class="fa-solid fa-cart-shopping"></i> CART <i
+                <div class="px-5 bg-light h-100" role="button"><i class="fa-solid fa-cart-shopping"></i> CART <i
                         class="fa-solid fa-angle-down"></i>
                 </div>
 

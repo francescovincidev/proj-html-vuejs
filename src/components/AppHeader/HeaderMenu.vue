@@ -43,20 +43,21 @@ export default {
     <section class="border-bottom">
         <div class=" w-75 mx-auto h-100 d-flex  justify-content-between  align-items-center">
             <!-- logo -->
-            <img src="../../assets/img/classic_shop_logo1x.png" alt="">
+            <img role="button" src="../../assets/img/classic_shop_logo1x.png" alt="">
 
             <!-- right section -->
             <!-- menu list -->
             <div class="d-flex align-items-center h-100">
                 <div class="menu d-flex align-items-center h-100">
-                    <div class="menu-item mx-3 position-relative h-100" v-for="menu, index in menuList" :key="index">{{
-                        menu.name }} <i v-if="menu.listType" class="fa-solid fa-angle-down fa-2xs  align-middle"></i>
+                    <div class="menu-item mx-3 position-relative h-100" role="button" v-for="menu, index in menuList"
+                        :key="index">{{
+                            menu.name }} <i v-if="menu.listType" class="fa-solid fa-angle-down fa-2xs  align-middle"></i>
                         <div class="blue-bar"></div>
                     </div>
                 </div>
                 <!-- button -->
                 <button class="rounded-pill ms-3">shop now!</button>
-                <i class="ms-3 fa-solid fa-magnifying-glass"></i>
+                <i role="button" class="ms-4 fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
     </section>

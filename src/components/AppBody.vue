@@ -1,8 +1,8 @@
 <script>
 export default {
     name: "AppBody",
-    setup () {
-        
+    data() {
+
 
         return {}
     }
@@ -15,6 +15,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
