@@ -6,6 +6,7 @@ import BodySeason from './AppBody/BodySeason.vue';
 import BodyBrandLogo from './AppBody/BodyBrandLogo.vue';
 import BodyResume from './AppBody/BodyResume.vue';
 import BodyBlog from './AppBody/BodyBlog.vue';
+import BodyVantages from './AppBody/BodyVantages.vue';
 
 
 export default {
@@ -17,7 +18,8 @@ export default {
         BodySeason,
         BodyBrandLogo,
         BodyResume,
-        BodyBlog
+        BodyBlog,
+        BodyVantages
 
 
     },
@@ -77,6 +79,17 @@ export default {
                 info: "Babchb ahubciania hdbvhabc vdisdvns vudns avctaib cabysbcyab sbcay"
             },
 
+            ],
+            vantages: [{
+                img: "promo_box_1_bg.jpg",
+                title: "70% Off",
+                description: "Gjebfq bcbcaki acbcsubc"
+            },
+            {
+                img: "promo_box_2_bg.jpg",
+                title: "Free Shipping",
+                description: "Gjebfq bcbcaki acbcsubc"
+            },
             ]
 
         }
@@ -92,6 +105,7 @@ export default {
     <!-- <BodyFeatured :sectionInfo="sectionInfo[0]" /> -->
     <BodySeason :seasons="seasons" />
     <BodyBestSeller :sectionInfo="sectionInfo[1]" />
+    <BodyVantages :vantages="vantages" />
     <BodyBlog :sectionInfo="sectionInfo[3]" :blog="blogSections" />
     <BodyResume />
     <BodyBrandLogo :logos="logos" />
