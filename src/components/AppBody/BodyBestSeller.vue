@@ -7,9 +7,7 @@ export default {
     data() {
         return {
             store,
-            visibleImages: [],
-            numFirst: 0,
-            numLast: 5
+            imgIndex: 0,
 
         }
     },
@@ -19,46 +17,41 @@ export default {
 
     },
     mounted() {
-        console.log(this.featuredSlice());
+        // console.log(this.featuredSlice());
+        store.featuredShow.filter(item => {
+            if (item.tags.includes("best-seller")) {
+                this.bestSeller.push(item)
+                console.log(this.bestSeller);
+            }
+
+        })
+
 
     },
     methods: {
         getImage(img) {
             return new URL(`../../assets/img/${img}`, import.meta.url).href;
         },
-        featuredSlice() {
-            return store.featuredShow.filter(item => {
-                return item.tags.includes("best-seller")
-            })
-        },
 
-        showNextPics() {
-            if (this.numLast === 5) {
-                this.numFirst = 0
-                this.numLast = 3
-
-            } else {
-                this.numFirst++
-                this.numLast++
-            }
-        },
-        showPrevPics() {
-            if (this.numFirst === 0) {
-                this.numFirst = 3
-                this.numLast = 6
-
-            } else {
-                this.numFirst--
-                this.numLast--
+        showNext() {
+            this.imgIndex = (this.imgIndex + 1) % this.bestSeller.length
+            if (this.imgIndex == 3) {
+                this.imgIndex = 0
             }
 
         },
+        showPrev() {
+            this.imgIndex = (this.imgIndex - 1 + this.bestSeller.length) % this.bestSeller.length
+            if (this.imgIndex == 6) {
+                this.imgIndex = 2
+            }
+        }
 
 
     },
     computed: {
         visibleImgs() {
-            return this.featuredSlice().slice(this.numFirst, this.numLast)
+            return this.featuredSlice()
         },
         featuredLength() {
             return this.featuredSlice().length
@@ -82,7 +75,7 @@ export default {
             <div class="row images d-flex justify-content-center flex-nowrap overflow-auto">
 
 
-                <template v-for="product, index in visibleImgs" :key="index">
+                <template v-for="product, index in store.bestSeller" :key="index">
 
                     <div class="col-3">
 
@@ -118,6 +111,36 @@ export default {
 
 
             </div>
+
+
+            <!-- <img :src="getImage(visibleImgs[imgIndex].imgOriginal)" class="d-block w-25 m-3" alt="..."> -->
+            <!-- <div>{{ visibleImgs[imgIndex].name }}</div> -->
+            <!-- <div v-for="product, index in visibleImgs">{{ visibleImgs[index].name }}</div> -->
+
+            <!-- {{ store.bestSeller[0] }} -->
+
+            <!-- <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner d-flex justify-content-between">
+                    <div class="carousel-item active d-flex justify-content-between">
+                        <img :src="getImage(store.bestSeller[0].imgOriginal)" class="d-block w-25  m-3" alt="...">
+                        <img :src="getImage(store.bestSeller[0 + 1].imgOriginal)" class="d-block w-25  m-3" alt="...">
+                        <img :src="getImage(store.bestSeller[0 + 2].imgOriginal)" class="d-block w-25  m-3" alt="...">
+                        {{ store.bestSeller[imgIndex].name }}
+
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev  text-black" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev" @click="showPrev
+                        ">
+                    <i class="fa-solid fa-angle-left fa-2xl"></i>
+
+                </button>
+                <button class="carousel-control-next text-black" type="button" data-bs-target="#carouselExample "
+                    data-bs-slide="next" @click="showNext">
+                    <i class="fa-solid fa-angle-right fa-2xl"></i>
+                </button>
+            </div> -->
 
 
 

@@ -129,7 +129,10 @@ const store = reactive({
 
     ],
     topRatedShow: [],
-    featuredShow: []
+    featuredShow: [],
+    bestSeller: [],
+    onSaleShow: [],
+    lastRevShow: []
 
 });
 

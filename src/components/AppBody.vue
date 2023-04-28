@@ -4,6 +4,7 @@ import BodyFeatured from './AppBody/BodyFeatured.vue';
 import BodyBestSeller from './AppBody/BodyBestSeller.vue';
 import BodySeason from './AppBody/BodySeason.vue';
 import BodyBrandLogo from './AppBody/BodyBrandLogo.vue';
+import BodyResume from './AppBody/BodyResume.vue';
 
 
 export default {
@@ -13,7 +14,8 @@ export default {
         BodyFeatured,
         BodyBestSeller,
         BodySeason,
-        BodyBrandLogo
+        BodyBrandLogo,
+        BodyResume
 
 
     },
@@ -60,6 +62,7 @@ export default {
     <!-- <BodyFeatured :sectionInfo="sectionInfo[0]" /> -->
     <BodySeason :seasons="seasons" />
     <BodyBestSeller :sectionInfo="sectionInfo[1]" />
+    <BodyResume />
     <BodyBrandLogo :logos="logos" />
 </template>
 

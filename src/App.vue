@@ -20,6 +20,9 @@ export default {
   mounted() {
     this.topRatedProducts();
     this.featuredProducts();
+    this.bestSeller();
+    this.onSale();
+    this.lastRev();
   },
   methods: {
     topRatedProducts() {
@@ -28,9 +31,21 @@ export default {
       store.topRatedShow = store.topRatedShow.slice(0, 3);
     },
     featuredProducts() {
-      store.featuredShow = store.products.filter(product => product.tags.includes('featured') && product.imgOriginal);
+      store.featuredShow = store.products.filter(product => product.tags.includes('featured') && product.imgSmall);
       store.featuredShow.sort(() => Math.random() - 0.5);
     },
+    bestSeller() {
+      store.bestSeller = store.products.filter(product => product.tags.includes('best-seller') && product.imgOriginal);
+      store.bestSeller.sort(() => Math.random() - 0.5);
+    },
+    onSale() {
+      store.onSaleShow = store.products.filter(product => product.tags.includes('on-sale') && product.imgOriginal);
+      store.onSaleShow.sort(() => Math.random() - 0.5);
+    },
+    lastRev() {
+      store.lastRevShow = store.products.filter(product => product.tags.includes('latest-reviews') && product.imgOriginal);
+      store.lastRevShow.sort(() => Math.random() - 0.5);
+    }
   }
 }
 
