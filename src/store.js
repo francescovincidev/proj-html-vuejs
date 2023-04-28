@@ -18,9 +18,9 @@ const store = reactive({
         {
             name: "Blue Leather Jacket",
             tags: ["Man", "Jackets", "Jeans", "Autumn", "featured", "on-sale"],
-            imgOriginal: "blue_elegant_leather_jacket.jpg",
-            imgSmall: "blue_elegant_leather_jacket-120x156.jpg",
-            imgMedium: "blue_elegant_leather_jacket-231x300.jpg",
+            imgOriginal: "blue_leather_jacket.jpg",
+            imgSmall: "blue_leather_jacket-120x156.jpg",
+            imgMedium: "blue_leather_jacket-231x300.jpg",
             vote: 0,
             originalPrice: 80,
             onSalePrice: 60,
@@ -129,6 +129,7 @@ const store = reactive({
 
     ],
     topRatedShow: [],
+    featuredShow: []
 
 });
 

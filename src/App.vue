@@ -19,12 +19,17 @@ export default {
   },
   mounted() {
     this.topRatedProducts();
+    this.featuredProducts();
   },
   methods: {
     topRatedProducts() {
       store.topRatedShow = store.products.filter(product => product.tags.includes('top-rated') && product.imgSmall);
       store.topRatedShow.sort(() => Math.random() - 0.5);
       store.topRatedShow = store.topRatedShow.slice(0, 3);
+    },
+    featuredProducts() {
+      store.featuredShow = store.products.filter(product => product.tags.includes('featured') && product.imgOriginal);
+      store.featuredShow.sort(() => Math.random() - 0.5);
     },
   }
 }
@@ -33,6 +38,7 @@ export default {
 
 <template>
   <AppHeader />
+  <AppBody />
   <AppFooter />
 </template>
 
