@@ -20,7 +20,7 @@ export default {
 
     },
     mounted() {
-        console.log(this.featuredSlice());
+
 
     },
     methods: {
@@ -33,41 +33,12 @@ export default {
             })
         },
 
-        showNextPics() {
-            if (this.numLast === 6) {
-                this.numFirst = 0
-                this.numLast = 3
-
-            } else {
-                this.numFirst++
-                this.numLast++
-            }
-        },
-        showPrevPics() {
-            if (this.numFirst === 0) {
-                this.numFirst = 3
-                this.numLast = 6
-
-            } else {
-                this.numFirst--
-                this.numLast--
-            }
-
-        },
-        visibleImgs() {
-            this.visibleImages = this.featuredSlice().slice(this.numFirst, this.numLast)
-        },
-
-
-
     },
     computed: {
         visibleImgs() {
-            return this.featuredSlice().slice(this.numFirst, this.numLast)
+            return this.featuredSlice()
         },
-        featuredLength() {
-            return this.featuredSlice().length
-        }
+
     }
 
 }
@@ -105,7 +76,7 @@ export default {
 
                 <template v-for="product, index in visibleImgs" :key="index">
 
-                    <div class="col">
+                    <div class="col-3">
 
 
                         <img class="w-75" :src="getImage(product.imgOriginal)" alt="">

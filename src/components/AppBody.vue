@@ -102,7 +102,7 @@ export default {
 
 <template>
     <BodyJumbo />
-    <!-- <BodyFeatured :sectionInfo="sectionInfo[0]" /> -->
+    <BodyFeatured :sectionInfo="sectionInfo[0]" />
     <BodySeason :seasons="seasons" />
     <BodyBestSeller :sectionInfo="sectionInfo[1]" />
     <BodyVantages :vantages="vantages" />

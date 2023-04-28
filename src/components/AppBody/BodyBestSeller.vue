@@ -16,47 +16,12 @@ export default {
         genre: String
 
     },
-    mounted() {
-        // console.log(this.featuredSlice());
-        store.featuredShow.filter(item => {
-            if (item.tags.includes("best-seller")) {
-                this.bestSeller.push(item)
-                console.log(this.bestSeller);
-            }
-
-        })
-
-
-    },
     methods: {
         getImage(img) {
             return new URL(`../../assets/img/${img}`, import.meta.url).href;
         },
-
-        showNext() {
-            this.imgIndex = (this.imgIndex + 1) % this.bestSeller.length
-            if (this.imgIndex == 3) {
-                this.imgIndex = 0
-            }
-
-        },
-        showPrev() {
-            this.imgIndex = (this.imgIndex - 1 + this.bestSeller.length) % this.bestSeller.length
-            if (this.imgIndex == 6) {
-                this.imgIndex = 2
-            }
-        }
-
-
-    },
-    computed: {
-        visibleImgs() {
-            return this.featuredSlice()
-        },
-        featuredLength() {
-            return this.featuredSlice().length
-        }
     }
+
 
 }
 </script>
@@ -75,8 +40,8 @@ export default {
             <div class="row images d-flex justify-content-center flex-nowrap overflow-auto">
 
 
-                <template v-for="product, index in store.bestSeller" :key="index">
 
+                <template v-for="product, index in store.bestSeller" :key="index">
                     <div class="col-3">
 
 
@@ -112,39 +77,6 @@ export default {
 
             </div>
 
-
-            <!-- <img :src="getImage(visibleImgs[imgIndex].imgOriginal)" class="d-block w-25 m-3" alt="..."> -->
-            <!-- <div>{{ visibleImgs[imgIndex].name }}</div> -->
-            <!-- <div v-for="product, index in visibleImgs">{{ visibleImgs[index].name }}</div> -->
-
-            <!-- {{ store.bestSeller[0] }} -->
-
-            <!-- <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner d-flex justify-content-between">
-                    <div class="carousel-item active d-flex justify-content-between">
-                        <img :src="getImage(store.bestSeller[0].imgOriginal)" class="d-block w-25  m-3" alt="...">
-                        <img :src="getImage(store.bestSeller[0 + 1].imgOriginal)" class="d-block w-25  m-3" alt="...">
-                        <img :src="getImage(store.bestSeller[0 + 2].imgOriginal)" class="d-block w-25  m-3" alt="...">
-                        {{ store.bestSeller[imgIndex].name }}
-
-                    </div>
-
-                </div>
-                <button class="carousel-control-prev  text-black" type="button" data-bs-target="#carouselExample"
-                    data-bs-slide="prev" @click="showPrev
-                        ">
-                    <i class="fa-solid fa-angle-left fa-2xl"></i>
-
-                </button>
-                <button class="carousel-control-next text-black" type="button" data-bs-target="#carouselExample "
-                    data-bs-slide="next" @click="showNext">
-                    <i class="fa-solid fa-angle-right fa-2xl"></i>
-                </button>
-            </div> -->
-
-
-
-
         </div>
     </section>
 </template>
@@ -159,7 +91,6 @@ section {
     .btn-group {
         label {
             background-color: lightgrey;
-            // border: 1px solid red;
             width: 100%;
         }
 
