@@ -12,58 +12,24 @@ export default {
         }
     },
     props: {
-        sectionInfo: Object,
-        genre: String
+        sectionInfo: Object
 
     },
-    mounted() {
-        // console.log(this.featuredSlice());
-        store.featuredShow.filter(item => {
-            if (item.tags.includes("best-seller")) {
-                this.bestSeller.push(item)
-                console.log(this.bestSeller);
-            }
 
-        })
-
-
-    },
     methods: {
         getImage(img) {
             return new URL(`../../assets/img/${img}`, import.meta.url).href;
-        },
-
-        showNext() {
-            this.imgIndex = (this.imgIndex + 1) % this.bestSeller.length
-            if (this.imgIndex == 3) {
-                this.imgIndex = 0
-            }
-
-        },
-        showPrev() {
-            this.imgIndex = (this.imgIndex - 1 + this.bestSeller.length) % this.bestSeller.length
-            if (this.imgIndex == 6) {
-                this.imgIndex = 2
-            }
         }
 
 
-    },
-    computed: {
-        visibleImgs() {
-            return this.featuredSlice()
-        },
-        featuredLength() {
-            return this.featuredSlice().length
-        }
     }
-
 }
 </script>
 
 <template>
     <section class="">
-        <div class="w-75 mx-auto py-5 container">
+        <hr>
+        <div class="w-75 mx-auto py-3 container">
             <div class="container h-100">
                 <div class="row row-cols-4 h-100 py-5 fw-semibold">
                     <!-- first column -->
@@ -214,8 +180,8 @@ export default {
 
 section {
     // height: 300px;
-    background-color: $grey-shark;
-    color: white;
+    // background-color: $grey-shark;
+    color: grey;
     font-size: .7rem;
 
     .col {
